@@ -1,0 +1,31 @@
+<?php
+
+//Paramètres de base
+define("WEBDIR","http".(isset($_SERVER['HTTPS'])?'s':'').("://$_SERVER[HTTP_HOST]/"));
+define("DBPRE","");
+define("AJAXDIR","js/ajax/loader.php");
+define("AJAXLOAD","js/ajax/loader.php?fonction=");
+
+// données pour la connexion à la base de données local
+define("DB_HOST",getenv("RDS_ENDPOINT"));
+define("DB_USER",getenv("RDS_USER"));
+define("DB_PASS",getenv("RDS_PASSWORD"));
+define("DB_BASE",getenv("RDS_DBNAME"));
+
+// clés API et paramètres du serveur
+define("FB_ID","886305161409231");
+define("FB_KEY","97347c93948a4adaf25a93c6388a77e3");
+
+//Démarrer les sessions
+session_start();
+
+// affiche toutes les erreurs et warnings PHP
+ini_set('display_errors',1);
+ini_set('error_reporting', E_ALL & ~ E_STRICT);
+
+define('CLASSES',dirname($_SERVER["SCRIPT_FILENAME"])."/classes/");
+define('INCLUDES',dirname($_SERVER["SCRIPT_FILENAME"])."/includes/");
+define('SCRIPTS',dirname($_SERVER["SCRIPT_FILENAME"])."/scripts/");
+
+?>
+
